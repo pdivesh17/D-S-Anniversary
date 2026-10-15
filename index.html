@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#260b18">
+<title>D ❤️ S | आपल्या प्रेमाची गोष्ट</title>
+<style>
+:root{--bg:#160711;--wine:#3a1026;--rose:#ff6b9a;--pink:#ffb7cf;--cream:#fff0f4;--gold:#f8d99a}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;color:var(--cream);font-family:Georgia,"Noto Serif Devanagari",serif;background:radial-gradient(ellipse at top,#4a1630 0,#1d0915 45%,#10050b 100%);min-height:100vh;overflow-x:hidden}
+button,input{font:inherit}
+button{cursor:pointer;border:0}
+.hidden{display:none!important}
+.glow{box-shadow:0 0 35px #ff4c8930, inset 0 0 20px #ff8eb01a}
+.screen{min-height:100vh;display:grid;place-items:center;padding:24px;position:relative}
+.panel{width:min(680px,100%);padding:clamp(24px,5vw,48px);border:1px solid #ff9cbe50;border-radius:28px;background:#230b18d9;backdrop-filter:blur(12px);text-align:center;position:relative;z-index:2}
+.eyebrow{color:var(--gold);letter-spacing:3px;text-transform:uppercase;font-size:.78rem}
+h1,h2,h3{font-weight:normal;line-height:1.35}
+h1{font-size:clamp(2rem,7vw,4.2rem);margin:12px 0;color:#fff0f5}
+h2{font-size:clamp(1.6rem,5vw,2.7rem);margin-top:0}
+p{line-height:1.95;color:#f7dfe8}
+.heart{color:var(--rose);text-shadow:0 0 22px #ff6b9a75}
+.primary,.secondary{padding:13px 22px;border-radius:999px;margin:7px;transition:.25s}
+.primary{background:linear-gradient(135deg,#ff7aa6,#bd315e);color:white;box-shadow:0 8px 25px #c72b5c45}
+.secondary{background:transparent;border:1px solid #ff9cbe70;color:var(--pink)}
+.primary:hover,.secondary:hover{transform:translateY(-2px) scale(1.02)}
+input{width:min(320px,100%);padding:14px 17px;border-radius:14px;border:1px solid #ff9cbe70;background:#150711;color:white;outline:none;margin:10px 0}
+#error{color:#ff9bb7;min-height:1.5em}
+.floating{position:fixed;inset:0;pointer-events:none;overflow:hidden;z-index:1}
+.float-heart{position:absolute;bottom:-50px;color:#ff6b9a99;animation:rise linear forwards}
+@keyframes rise{to{transform:translateY(-115vh) rotate(35deg);opacity:0}}
+.main{max-width:1050px;margin:auto;padding:28px 18px 80px;position:relative;z-index:2}
+.top{text-align:center;padding:48px 12px 28px}
+.counter{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:24px auto;max-width:720px}
+.timebox{padding:17px 8px;border-radius:18px;background:#ffffff09;border:1px solid #ff9cbe35}
+.timebox strong{display:block;font-size:clamp(1.4rem,4vw,2.3rem);color:var(--pink)}
+.timebox span{font-size:.8rem;color:#eec9d6}
+.section{margin:30px 0;padding:clamp(22px,4vw,38px);border-radius:25px;border:1px solid #ff9cbe30;background:linear-gradient(145deg,#351025c9,#1c0916e8)}
+.letter{font-size:1.08rem;white-space:pre-line}
+.wish-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:13px}
+.wish{border:1px solid #ff9cbe38;border-radius:18px;padding:20px;background:#ffffff07}
+.wish h3{color:var(--pink);margin-top:0}
+.gallery{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:14px}
+.photo-slot{min-height:210px;border:1px dashed #ff9cbe80;border-radius:18px;display:grid;place-items:center;text-align:center;padding:18px;background:#ffffff05;color:#e8b9ca;overflow:hidden}
+.photo-slot img{width:100%;height:100%;max-height:280px;object-fit:cover;border-radius:12px}
+input[type=file]{font-size:.85rem;border:0;padding:8px}
+.book-wrap{perspective:1200px;margin:24px auto;max-width:560px}
+.book{min-height:290px;position:relative;transform-style:preserve-3d}
+.book-page{border:1px solid #f3c5d5;border-radius:7px 20px 20px 7px;background:linear-gradient(120deg,#fff1f5,#f9d9e4);color:#4b1930;padding:30px;min-height:290px;box-shadow:8px 12px 28px #0005;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;transform-origin:left;transition:transform .8s}
+.book-page.turn{transform:rotateY(-115deg)}
+.book-page h3{color:#8c234b;font-size:1.5rem}
+.book-page p{color:#64203d}
+.book-controls{display:flex;justify-content:center;flex-wrap:wrap;gap:8px}
+.surprise{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:13px}
+.surprise-card{padding:23px 14px;background:#ffffff08;border:1px solid #ff9cbe38;border-radius:18px;text-align:center}
+.gift{font-size:2.4rem;display:block;margin-bottom:10px}
+.reveal{color:var(--pink);min-height:3em;line-height:1.8}
+footer{text-align:center;color:#d8a8ba;padding:35px 10px}
+.small{font-size:.88rem;color:#d6a7b9}
+#celebration{position:fixed;inset:0;pointer-events:none;z-index:10}
+@media(max-width:520px){.counter{grid-template-columns:repeat(2,1fr)}.top{padding-top:30px}.section{margin:18px 0}}
+</style>
+</head>
+<body>
+<div class="floating" id="floating"></div>
+<canvas id="celebration"></canvas>
+
+<section class="screen" id="lockScreen">
+  <div class="panel glow">
+    <div class="eyebrow">फक्त आपल्यासाठी · D कडून S साठी</div>
+    <h1>आपल्या प्रेमाच्या<br><span class="heart">गुपित जगात</span> ❤️</h1>
+    <p>ही छोटीशी दुनिया फक्त तुझ्यासाठी आहे, S.<br>आपल्या खास आठवणी उघडण्यासाठी गुपित पासवर्ड टाक.</p>
+    <form id="unlockForm">
+      <input id="password" type="password" placeholder="आपला गुपित पासवर्ड" autocomplete="current-password" required aria-label="गुपित पासवर्ड">
+      <br><button class="primary" type="submit">❤️ प्रेमाचं दार उघड</button>
+    </form>
+    <div id="error" aria-live="polite"></div>
+    <p class="small">तुझ्यासाठी बनवलेलं एक छोटंसं प्रेमाचं सरप्राइज ✨</p>
+  </div>
+</section>
+
+<main id="mainSite" class="main hidden">
+  <section class="screen" id="loveGateway" style="min-height:75vh;padding:12px 0">
+    <div class="panel glow">
+      <div class="eyebrow">एक खास क्षण · फक्त S साठी</div>
+      <h1>तुझ्यासाठी एक <span class="heart">गुपित</span> ❤️</h1>
+      <p>माझ्या मनात जपलेली एक छोटीशी गोष्ट आहे…<br>ती पाहण्यासाठी खाली क्लिक कर.</p>
+      <button class="primary" id="openBookGateway">I LOVE YOU S ❤️</button>
+      <p class="small">एक क्लिक… आणि आपल्या आठवणींचं पुस्तक उघडेल.</p>
+    </div>
+  </section>
+  <header class="top">
+    <div class="eyebrow">१७ ऑक्टोबर २०२२ · आपल्या प्रवासाची सुरुवात</div>
+    <h1>D <span class="heart">♥</span> S</h1>
+    <p>एक तारीख, दोन मनं आणि आयुष्यभर जपाव्यात अशा असंख्य आठवणी…</p>
+    <button class="primary" id="loveBtn">💌 Love You</button>
+    <button class="secondary" id="musicBtn">♫ प्रेमाची धून सुरू कर</button>
+    <div class="counter" aria-label="आपल्या नात्याचा कालावधी">
+      <div class="timebox"><strong id="days">0</strong><span>दिवस</span></div>
+      <div class="timebox"><strong id="hours">00</strong><span>तास</span></div>
+      <div class="timebox"><strong id="minutes">00</strong><span>मिनिटं</span></div>
+      <div class="timebox"><strong id="seconds">00</strong><span>सेकंद</span></div>
+    </div>
+    <p class="small">प्रत्येक सेकंद खास आहे, कारण त्या प्रत्येक सेकंदात तू आहेस. ❤️</p>
+  </header>
+
+  <section class="section glow">
+    <div class="eyebrow">मनापासून</div><h2>माझ्या प्रिय S साठी… 💌</h2>
+    <div class="letter">प्रिय S,
+
+कधी कधी मनातलं सगळं सांगायला शब्द कमी पडतात. तू माझ्या आयुष्यात आलीस आणि साध्या-साध्या क्षणांनाही एक वेगळीच सुंदरता मिळाली. तुझं हसणं, तुझं बोलणं, तुझी काळजी आणि तुझं माझ्या सोबत असणं—या सगळ्या गोष्टी माझ्यासाठी खूप मौल्यवान आहेत.
+
+आपल्या नात्यात नेहमी आनंदाचेच दिवस असतील असं नाही. कधी गैरसमज होतील, कधी रुसवे-फुगवे होतील; पण प्रत्येक वेळी एकमेकांना समजून घेण्याची, ऐकून घेण्याची आणि हात न सोडण्याची इच्छा माझ्या मनात कायम राहील.
+
+मला तुझ्यासोबत फक्त आजचे सुंदर क्षण नाही, तर उद्याची स्वप्नंही जगायची आहेत. तुझ्या आनंदात हसायचंय, तुझ्या कठीण दिवसांत तुझ्या बाजूला उभं राहायचंय आणि छोट्या छोट्या गोष्टींतून तुला किती खास आहेस हे जाणवून द्यायचंय.
+
+माझ्यासाठी तू फक्त प्रेम नाहीस—तू माझी आवडती व्यक्ती, माझ्या मनाची शांतता आणि माझ्या अनेक सुंदर स्वप्नांचा भाग आहेस.
+
+आपल्या या प्रवासात आपण दोघंही शिकत राहू, वाढत राहू आणि एकमेकांसाठी अधिक चांगले होत राहू. आज, उद्या आणि प्रत्येक नव्या सुरुवातीला—माझ्या मनात तुझ्यासाठी प्रेम आणि आदर असावा, हीच इच्छा.
+
+आपल्या प्रत्येक आठवणीसाठी धन्यवाद. माझ्या आयुष्यात असल्याबद्दल धन्यवाद.
+
+खूप खूप प्रेमाने,
+तुझा D ❤️</div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">मनाला भिडणाऱ्या शुभेच्छा</div><h2>तुझ्यासाठी काही खास शब्द 🌹</h2>
+    <div class="wish-grid">
+      <article class="wish"><h3>❤️ आपल्या प्रेमासाठी</h3><p>आपलं प्रेम नेहमी मोठ्या गोष्टींमध्येच दिसावं असं नाही. छोट्या काळजीत, एका मेसेजमध्ये, मनापासून ऐकण्यात आणि “मी आहे ना” या भावनेत ते रोज फुलत राहो.</p></article>
+      <article class="wish"><h3>🌷 तुझ्या आनंदासाठी</h3><p>तुझ्या चेहऱ्यावरचं हसू कधी हरवू नये. तुझी स्वप्नं पूर्ण व्हावीत, तुला स्वतःचा अभिमान वाटावा आणि प्रत्येक नव्या दिवसात तुला आशेचं कारण मिळावं.</p></article>
+      <article class="wish"><h3>🤝 आपल्या साथीकरिता</h3><p>आयुष्याच्या प्रत्येक वळणावर आपण एकमेकांना समजून घेऊ. मतभेद झाले तरी आदर कमी होऊ देणार नाही आणि कठीण वेळ आली तरी संवादाची वाट बंद होऊ देणार नाही.</p></article>
+      <article class="wish"><h3>✨ आपल्या भविष्याकरिता</h3><p>आपण एकत्र अनेक आठवणी बनवू, नवीन जागा पाहू, मनसोक्त हसू आणि छोट्या छोट्या यशांचा आनंद साजरा करू. आपल्या उद्याला आजपेक्षा अधिक सुंदर बनवू.</p></article>
+      <article class="wish"><h3>🫶 तुझ्या अस्तित्वासाठी</h3><p>तुला प्रत्येक वेळी काही सिद्ध करावं लागणार नाही. तुझ्या भावना महत्त्वाच्या आहेत, तुझा आवाज महत्त्वाचा आहे आणि तू जशी आहेस तशीच खास आहेस.</p></article>
+      <article class="wish"><h3>💫 आपल्या आठवणींसाठी</h3><p>काळ पुढे जाईल, दिवस बदलतील; पण आपण जपून ठेवलेल्या छोट्या आठवणी आपल्या चेहऱ्यावर पुन्हा पुन्हा हसू आणत राहोत.</p></article>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">आपल्या आठवणी</div><h2>आपली छोटीशी Memory Gallery 📸</h2>
+    <p>खालील जागांवर तुमचे फोटो निवड. फोटो या पेजवरच दाखवले जातात; वेबसाइट बंद केल्यावर ते आपोआप सेव्ह होत नाहीत.</p>
+    <div class="gallery">
+      <div class="photo-slot"><div><span style="font-size:2rem">📷</span><p>आपला आवडता फोटो</p><input type="file" accept="image/*" class="photoInput" aria-label="पहिला फोटो निवडा"><div class="small">फक्त या ब्राउझरमध्ये दाखवला जाईल</div></div></div>
+      <div class="photo-slot"><div><span style="font-size:2rem">🌸</span><p>एक सुंदर आठवण</p><input type="file" accept="image/*" class="photoInput" aria-label="दुसरा फोटो निवडा"></div></div>
+      <div class="photo-slot"><div><span style="font-size:2rem">💗</span><p>आपला खास क्षण</p><input type="file" accept="image/*" class="photoInput" aria-label="तिसरा फोटो निवडा"></div></div>
+    </div>
+  </section>
+
+  <section class="section" id="loveBookSection">
+    <div class="eyebrow">पानोपानी प्रेम</div><h2>आपलं 3D Love Book 📖</h2>
+    <p>पुस्तकाची पानं बदल आणि प्रत्येक पानावरचं छोटंसं सरप्राइज वाच.</p>
+    <div class="book-wrap"><div class="book"><div class="book-page" id="bookPage"><div>📖 <span id="pageNum">पान १ / ५</span></div><h3 id="pageTitle">आपली गोष्ट</h3><p id="pageText">काही भेटी योगायोगाने होतात; पण काही माणसं मनात कायमची जागा बनवतात.</p><div style="font-size:1.8rem">♥</div></div></div></div>
+    <div class="book-controls"><button class="secondary" id="prevPage">← मागचं पान</button><button class="primary" id="nextPage">पुढचं पान →</button></div>
+  </section>
+
+  <section class="section">
+    <div class="eyebrow">एकामागोमाग एक</div><h2>तुझ्यासाठी Surprise Box 🎁</h2>
+    <p>प्रत्येक भेट उघड. शेवटचं सरप्राइज आपल्या प्रेमासाठी!</p>
+    <div class="surprise">
+      <div class="surprise-card"><span class="gift">💌</span><button class="secondary revealBtn" data-message="तू माझ्या दिवसात आनंदाची एक सुंदर वजह आहेस. तुझ्याशी बोलणं म्हणजे मनाला मिळालेला छोटासा आराम.">पहिलं सरप्राइज उघड</button><p class="reveal"></p></div>
+      <div class="surprise-card"><span class="gift">🌹</span><button class="secondary revealBtn" data-message="तुला रोज सांगता आलं नाही तरी एक गोष्ट खरी आहे—तुझ्या भावना, तुझी स्वप्नं आणि तुझा आनंद माझ्यासाठी महत्त्वाचा आहे.">दुसरं सरप्राइज उघड</button><p class="reveal"></p></div>
+      <div class="surprise-card"><span class="gift">✨</span><button class="secondary revealBtn" data-message="माझं स्वप्न परिपूर्ण नातं नाही; तर असं नातं आहे जिथे आपण मनमोकळं बोलू, चुका मान्य करू, माफ करू आणि पुन्हा एकमेकांची निवड करू.">तिसरं सरप्राइज उघड</button><p class="reveal"></p></div>
+      <div class="surprise-card"><span class="gift">💖</span><button class="primary" id="finalSurprise">शेवटचं मोठं सरप्राइज!</button><p class="reveal" id="finalMessage"></p></div>
+    </div>
+  </section>
+  <footer><div style="font-size:2rem;color:#ff6b9a">D ♥ S</div><p>आजची तारीख काहीही असो, आपली गोष्ट रोज नव्याने सुंदर होऊ दे.</p><p class="small">संपूर्ण प्रेमाने तयार केलेलं · फक्त आपल्यासाठी ❤️</p></footer>
+</main>
+
+<script>
+/* बदलायच्या सेटिंग्ज: पासवर्ड आणि नात्याची सुरुवातीची तारीख */
+const SECRET_PASSWORD = "SOnly"; // इथे तुमचा स्वतःचा पासवर्ड बदला
+const START_DATE = new Date("2022-10-17T00:00:00");
+const $ = id => document.getElementById(id);
+$('unlockForm').addEventListener('submit', e => {
+  e.preventDefault();
+  if ($('password').value === SECRET_PASSWORD) {
+    $('lockScreen').classList.add('hidden');
+    $('mainSite').classList.remove('hidden');
+    updateCounter(); setInterval(updateCounter,1000); makeHearts(12);
+  } else { $('error').textContent = 'पासवर्ड जुळला नाही. पुन्हा प्रयत्न कर ❤️'; }
+});
+function updateCounter(){
+  let diff=Math.max(0,Date.now()-START_DATE.getTime());
+  $('days').textContent=Math.floor(diff/86400000).toLocaleString('mr-IN');
+  $('hours').textContent=String(Math.floor(diff/3600000)%24).padStart(2,'0');
+  $('minutes').textContent=String(Math.floor(diff/60000)%60).padStart(2,'0');
+  $('seconds').textContent=String(Math.floor(diff/1000)%60).padStart(2,'0');
+}
+function makeHearts(count=1){
+  const area=$('floating');
+  for(let i=0;i<count;i++){const h=document.createElement('span');h.className='float-heart';h.textContent=['♥','♡','❤','✦'][Math.floor(Math.random()*4)];h.style.left=Math.random()*100+'%';h.style.fontSize=(14+Math.random()*28)+'px';h.style.animationDuration=(5+Math.random()*7)+'s';area.appendChild(h);setTimeout(()=>h.remove(),12500);}
+}
+setInterval(()=>{if(!$('mainSite').classList.contains('hidden'))makeHearts(2)},1800);
+$('loveBtn').addEventListener('click',()=>{alert('S, तुझ्यावर खूप प्रेम आहे! ❤️ — तुझा D'); makeHearts(35);});
+$('openBookGateway').addEventListener('click',()=>{
+  $('loveBookSection').scrollIntoView({behavior:'smooth',block:'center'});
+  makeHearts(45);
+  const page=$('bookPage');
+  page.classList.add('turn');
+  setTimeout(()=>{pageIndex=0;renderPage();page.classList.remove('turn');},450);
+});
+const pages=[
+['आपली गोष्ट','काही भेटी योगायोगाने होतात; पण काही माणसं मनात कायमची जागा बनवतात.'],
+['तुझं हसू','तुझ्या हसण्यात माझ्या दिवसाला उजळवणारा एक सुंदर प्रकाश आहे.'],
+['आपल्या आठवणी','आपले छोटे क्षण, मनमोकळ्या गप्पा आणि एकत्र हसलेले क्षण—हेच तर आपल्या गोष्टीचं सौंदर्य आहे.'],
+['आपली स्वप्नं','आपण एकमेकांना साथ देत, शिकत आणि वाढत आपली स्वप्नं पूर्ण करूया.'],
+['एक वचन','मी नेहमी परिपूर्ण असेन असं नाही; पण ऐकण्याचा, समजून घेण्याचा आणि तुझा आदर करण्याचा प्रयत्न मनापासून करेन. ❤️']
+];
+let pageIndex=0,animating=false;
+function renderPage(){ $('pageNum').textContent=`पान ${pageIndex+1} / ${pages.length}`;$('pageTitle').textContent=pages[pageIndex][0];$('pageText').textContent=pages[pageIndex][1];}
+function turnPage(next){if(animating)return;animating=true;$('bookPage').classList.add('turn');setTimeout(()=>{pageIndex=(pageIndex+next+pages.length)%pages.length;renderPage();$('bookPage').classList.remove('turn');setTimeout(()=>animating=false,450)},420)}
+$('nextPage').addEventListener('click',()=>turnPage(1));$('prevPage').addEventListener('click',()=>turnPage(-1));
+document.querySelectorAll('.revealBtn').forEach(btn=>btn.addEventListener('click',()=>{btn.nextElementSibling.textContent=btn.dataset.message;btn.textContent='उघडलं ❤️';btn.disabled=true;makeHearts(10)}));
+$('finalSurprise').addEventListener('click',()=>{$('finalMessage').textContent='S, तू माझ्यासाठी खूप खास आहेस. आपल्या प्रेमात मैत्री, आदर, विश्वास आणि हसू नेहमी जिवंत राहो. आज आणि पुढच्या प्रत्येक सुंदर दिवसासाठी—तुझा D. ❤️';makeHearts(80);burst();});
+document.querySelectorAll('.photoInput').forEach(input=>input.addEventListener('change',()=>{const file=input.files&&input.files[0];if(!file)return;if(!file.type.startsWith('image/'))return;const reader=new FileReader();reader.onload=()=>{const slot=input.closest('.photo-slot');slot.innerHTML='';const img=document.createElement('img');img.src=reader.result;img.alt='निवडलेली वैयक्तिक आठवण';slot.appendChild(img);};reader.readAsDataURL(file);}));
+/* हलकी स्वतः तयार होणारी धून; कोणतंही बाह्य गाणं/फाईल वापरत नाही */
+let audioCtx=null,musicOn=false,musicTimer=null,note=0;
+const melody=[261.63,329.63,392,329.63,293.66,349.23,440,392];
+function playNote(){if(!musicOn||!audioCtx)return;const osc=audioCtx.createOscillator(),gain=audioCtx.createGain();osc.type='sine';osc.frequency.value=melody[note++%melody.length];gain.gain.setValueAtTime(.0001,audioCtx.currentTime);gain.gain.exponentialRampToValueAtTime(.055,audioCtx.currentTime+.05);gain.gain.exponentialRampToValueAtTime(.0001,audioCtx.currentTime+.65);osc.connect(gain);gain.connect(audioCtx.destination);osc.start();osc.stop(audioCtx.currentTime+.7);}
+$('musicBtn').addEventListener('click',async()=>{if(!audioCtx)audioCtx=new(window.AudioContext||window.webkitAudioContext)();if(audioCtx.state==='suspended')await audioCtx.resume();musicOn=!musicOn;if(musicOn){playNote();musicTimer=setInterval(playNote,650);$('musicBtn').textContent='♫ धून थांबव';}else{clearInterval(musicTimer);$('musicBtn').textContent='♫ प्रेमाची धून सुरू कर';}});
+function burst(){const c=$('celebration'),ctx=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const bits=Array.from({length:130},()=>({x:c.width/2,y:c.height*.65,vx:(Math.random()-.5)*12,vy:(Math.random()-.8)*12,life:80,size:2+Math.random()*4,char:Math.random()>.5?'♥':'✦'}));function frame(){ctx.clearRect(0,0,c.width,c.height);let alive=false;bits.forEach(b=>{if(b.life>0){alive=true;b.x+=b.vx;b.y+=b.vy;b.vy+=.12;b.life--;ctx.globalAlpha=b.life/80;ctx.fillStyle=b.life%2?'#ff8bb4':'#f8d99a';ctx.font=b.size*4+'px serif';ctx.fillText(b.char,b.x,b.y);}});ctx.globalAlpha=1;if(alive)requestAnimationFrame(frame);else ctx.clearRect(0,0,c.width,c.height)}frame();}
+window.addEventListener('resize',()=>{const c=$('celebration');c.width=innerWidth;c.height=innerHeight;});
+</script>
+</body>
+</html>
